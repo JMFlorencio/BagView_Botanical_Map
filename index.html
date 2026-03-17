@@ -156,15 +156,15 @@
 
     <script>
         const stations = [
-            { id: 1, y: 765, x: 170, name: 'Station:1', desc: 'Main botanical entrance', img: 'Assets/Arbor.PNG' },
-            { id: 2, y: 890, x: 710, name: 'Station:2', desc: 'Exotic orchid collection', img: 'Assets/Orchidarium.PNG' },
-            { id: 3, y: 660, x: 765, name: 'Station:3', desc: 'Peaceful garden walk', img: 'Assets/PMSEA Garden.PNG' },
-            { id: 4, y: 490, x: 840, name: 'Station:4', desc: 'Historical site', img: 'Assets/Japanese Tunnel.PNG' },
-            { id: 5, y: 230, x: 650, name: 'Station:5', desc: 'Japanese Garden', img: 'Assets/Japanese Garden.PNG' },
-            { id: 6, y: 125, x: 460, name: 'Station:6', desc: 'Korea Garden', img: 'Assets/Korea Garden.PNG' },
-            { id: 7, y: 350, x: 150, name: 'Station:7', desc: 'Chinese Garden', img: 'Assets/Chinese Garden.PNG' },
-            { id: 8, y: 550, x: 280, name: 'Station:8', desc: 'City of Vaughan Friendship Garden', img: 'Assets/City of Vaughan Friendship Garden.PNG' },
-            { id: 9, y: 800, x: 450, name: 'Station:9', desc: 'Sports center', img: 'Assets/tennis.jpg' },
+            { id: 1, y: 765, x: 170, name: 'Station:1', desc: 'Main botanical entrance', img: 'assets/Arbor.PNG' },
+            { id: 2, y: 890, x: 710, name: 'Station:2', desc: 'Exotic orchid collection', img: 'assets/Orchidarium.PNG' },
+            { id: 3, y: 660, x: 765, name: 'Station:3', desc: 'Peaceful garden walk', img: 'assets/PMSEA Garden.PNG' },
+            { id: 4, y: 490, x: 840, name: 'Station:4', desc: 'Historical site', img: 'assets/Japanese Tunnel.PNG' },
+            { id: 5, y: 230, x: 650, name: 'Station:5', desc: 'Japanese Garden', img: 'assets/Japanese Garden.PNG' },
+            { id: 6, y: 125, x: 460, name: 'Station:6', desc: 'Korea Garden', img: 'assets/Korea Garden.PNG' },
+            { id: 7, y: 350, x: 150, name: 'Station:7', desc: 'Chinese Garden', img: 'assets/Chinese Garden.PNG' },
+            { id: 8, y: 550, x: 280, name: 'Station:8', desc: 'City of Vaughan Friendship Garden', img: 'assets/City of Vaughan Friendship Garden.PNG' },
+            { id: 9, y: 800, x: 450, name: 'Station:9', desc: 'Sports center', img: 'assets/tennis.jpg' },
             { id: 10, y: 100, x: 850, name: 'Station:10', desc: 'Waterfront', img: 'Assets/beach.jpg' },
             { id: 11, y: 420, x: 920, name: 'Station:11', desc: 'Play zone', img: 'Assets/kids.jpg' },
             { id: 12, y: 610, x: 120, name: 'Station:12', desc: 'Zen space', img: 'Assets/yoga.jpg' },
@@ -184,7 +184,7 @@
         });
 
         const bounds = [[0, 0], [1000, 1000]];
-        L.imageOverlay('Assets/map.PNG', bounds).addTo(map);
+        L.imageOverlay('assets/map.PNG', bounds).addTo(map);
         map.fitBounds(bounds);
 
         const listContainer = document.getElementById('station-list');
