@@ -153,8 +153,9 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
-        // CRITICAL FIX: Removed leading slashes. 
-        // These will now look inside jmflorencio.github.io/BagView_Botanical_Map/Assets/
+        // UPDATED PATHS: Check if your files on GitHub end in .PNG or .png
+        // I have set the first ones to .PNG to match your code, 
+        // but if they still don't show, try changing them to lowercase .png
         const stations = [
             { id: 1, y: 765, x: 170, name: 'Station:1', desc: 'Main botanical entrance', img: 'Assets/Arbor.PNG' },
             { id: 2, y: 890, x: 710, name: 'Station:2', desc: 'Exotic orchid collection', img: 'Assets/Orchidarium.PNG' },
@@ -184,7 +185,7 @@
 
         const bounds = [[0, 0], [1000, 1000]];
         
-        // FIXED PATH:
+        // This is working now:
         L.imageOverlay('Assets/Map.jpg', bounds).addTo(map);
         map.fitBounds(bounds);
 
@@ -203,7 +204,7 @@
             card.className = 'station-card';
             card.setAttribute('data-name', s.name.toLowerCase());
             card.innerHTML = `
-                <img src="${s.img}" alt="${s.name}" onerror="this.src='https://via.placeholder.com/140x100?text=No+Img'">
+                <img src="${s.img}" alt="${s.name}" onerror="this.src='https://via.placeholder.com/140x100?text=Error'">
                 <span>${s.name}</span>
             `;
             card.onclick = () => {
