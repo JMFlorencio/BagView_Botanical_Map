@@ -153,26 +153,25 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
-        // UPDATED PATHS: Check if your files on GitHub end in .PNG or .png
-        // I have set the first ones to .PNG to match your code, 
-        // but if they still don't show, try changing them to lowercase .png
+        const RAW_URL = "https://raw.githubusercontent.com/Jmflorencio/BagView_Botanical_Map/main/Assets/";
+
         const stations = [
-            { id: 1, y: 765, x: 170, name: 'Station:1', desc: 'Main botanical entrance', img: 'Assets/Arbor.png' },
-            { id: 2, y: 890, x: 710, name: 'Station:2', desc: 'Exotic orchid collection', img: 'Assets/Orchidarium.png' },
-            { id: 3, y: 660, x: 765, name: 'Station:3', desc: 'Peaceful garden walk', img: 'Assets/PMSEA Garden.png' },
-            { id: 4, y: 490, x: 840, name: 'Station:4', desc: 'Historical site', img: 'Assets/Japanese Tunnel.png' },
-            { id: 5, y: 230, x: 650, name: 'Station:5', desc: 'Japanese Garden', img: 'Assets/Japanese Garden.png' },
-            { id: 6, y: 125, x: 460, name: 'Station:6', desc: 'Korea Garden', img: 'Assets/Korea Garden.png' },
-            { id: 7, y: 350, x: 150, name: 'Station:7', desc: 'Chinese Garden', img: 'Assets/Chinese Garden.Ppng' },
-            { id: 8, y: 550, x: 280, name: 'Station:8', desc: 'City of Vaughan Friendship Garden', img: 'Assets/City of Vaughan Friendship Garden.png' },
-            { id: 9, y: 800, x: 450, name: 'Station:9', desc: 'Sports center', img: 'Assets/tennis.jpg' },
-            { id: 10, y: 100, x: 850, name: 'Station:10', desc: 'Waterfront', img: 'Assets/beach.jpg' },
-            { id: 11, y: 420, x: 920, name: 'Station:11', desc: 'Play zone', img: 'Assets/kids.jpg' },
-            { id: 12, y: 610, x: 120, name: 'Station:12', desc: 'Zen space', img: 'Assets/yoga.jpg' },
-            { id: 13, y: 220, x: 340, name: 'Station:13', desc: 'Reading room', img: 'Assets/library.jpg' },
-            { id: 14, y: 710, x: 520, name: 'Station:14', desc: 'Gifts & Crafts', img: 'Assets/shop.jpg' },
-            { id: 15, y: 310, x: 740, name: 'Station:15', desc: 'Movies', img: 'Assets/cinema.jpg' },
-            { id: 16, y: 840, x: 290, name: 'Station:16', desc: 'Arrivals', img: 'Assets/helipad.jpg' }
+            { id: 1, y: 765, x: 170, name: 'Station:1', desc: 'Main botanical entrance', img: RAW_URL + 'Arbor.PNG' },
+            { id: 2, y: 890, x: 710, name: 'Station:2', desc: 'Exotic orchid collection', img: RAW_URL + 'Orchidarium.PNG' },
+            { id: 3, y: 660, x: 765, name: 'Station:3', desc: 'Peaceful garden walk', img: RAW_URL + 'PMSEA Garden.PNG' },
+            { id: 4, y: 490, x: 840, name: 'Station:4', desc: 'Historical site', img: RAW_URL + 'Japanese Tunnel.PNG' },
+            { id: 5, y: 230, x: 650, name: 'Station:5', desc: 'Japanese Garden', img: RAW_URL + 'Japanese Garden.PNG' },
+            { id: 6, y: 125, x: 460, name: 'Station:6', desc: 'Korea Garden', img: RAW_URL + 'Korea Garden.PNG' },
+            { id: 7, y: 350, x: 150, name: 'Station:7', desc: 'Chinese Garden', img: RAW_URL + 'Chinese Garden.PNG' },
+            { id: 8, y: 550, x: 280, name: 'Station:8', desc: 'City of Vaughan Friendship Garden', img: RAW_URL + 'City of Vaughan Friendship Garden.PNG' },
+            { id: 9, y: 800, x: 450, name: 'Station:9', desc: 'Sports center', img: RAW_URL + 'tennis.jpg' },
+            { id: 10, y: 100, x: 850, name: 'Station:10', desc: 'Waterfront', img: RAW_URL + 'beach.jpg' },
+            { id: 11, y: 420, x: 920, name: 'Station:11', desc: 'Play zone', img: RAW_URL + 'kids.jpg' },
+            { id: 12, y: 610, x: 120, name: 'Station:12', desc: 'Zen space', img: RAW_URL + 'yoga.jpg' },
+            { id: 13, y: 220, x: 340, name: 'Station:13', desc: 'Reading room', img: RAW_URL + 'library.jpg' },
+            { id: 14, y: 710, x: 520, name: 'Station:14', desc: 'Gifts & Crafts', img: RAW_URL + 'shop.jpg' },
+            { id: 15, y: 310, x: 740, name: 'Station:15', desc: 'Movies', img: RAW_URL + 'cinema.jpg' },
+            { id: 16, y: 840, x: 290, name: 'Station:16', desc: 'Arrivals', img: RAW_URL + 'helipad.jpg' }
         ];
 
         const map = L.map('map', {
@@ -185,8 +184,8 @@
 
         const bounds = [[0, 0], [1000, 1000]];
         
-        // This is working now:
-        L.imageOverlay('Assets/Map.jpg', bounds).addTo(map);
+        // Background Map via GitHub URL
+        L.imageOverlay(RAW_URL + 'Map.jpg', bounds).addTo(map);
         map.fitBounds(bounds);
 
         const listContainer = document.getElementById('station-list');
@@ -204,7 +203,7 @@
             card.className = 'station-card';
             card.setAttribute('data-name', s.name.toLowerCase());
             card.innerHTML = `
-                <img src="${s.img}" alt="${s.name}" onerror="this.src='https://via.placeholder.com/140x100?text=Error'">
+                <img src="${s.img}" alt="${s.name}" onerror="this.src='https://via.placeholder.com/140x100?text=Reloading...'">
                 <span>${s.name}</span>
             `;
             card.onclick = () => {
@@ -214,7 +213,7 @@
             listContainer.appendChild(card);
         });
 
-        // Sheet Logic
+        // Bottom Sheet Logic
         const sheet = document.getElementById('bottom-sheet');
         const dragZone = document.getElementById('drag-zone');
         let isDragging = false;
